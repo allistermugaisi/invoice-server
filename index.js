@@ -46,7 +46,7 @@ const transporter = nodemailer.createTransport({
 
 var options = { format: 'A4' };
 //SEND PDF INVOICE VIA EMAIL
-app.post('/send-pdf', (req, res) => {
+app.post('send-pdf', (req, res) => {
 	const { email, company } = req.body;
 
 	// pdf.create(pdfTemplate(req.body), {}).toFile('invoice.pdf', (err) => {
@@ -86,7 +86,7 @@ app.post('/send-pdf', (req, res) => {
 // npm link phantomjs-prebuilt
 
 //CREATE AND SEND PDF INVOICE
-app.post('/create-pdf', (req, res) => {
+app.post('create-pdf', (req, res) => {
 	pdf.create(pdfTemplate(req.body), {}).toFile('invoice.pdf', (err) => {
 		if (err) {
 			res.send(Promise.reject());
